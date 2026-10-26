@@ -3,19 +3,322 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <title>All Products</title>
+    <link rel="stylesheet" href="output.css" />
   </head>
   <body>
-    <h1 class="font-bold text-[32px] w-full text-center my-10">ALL PRODUCTS</h1>
+    <div
+      class="offer-banner bg-blue-400 from-blue-400 to-secondary text-white text-center py-3 font-medium relative overflow-hidden"
+    >
+      Special Offer: Free Shipping on all orders above N10,000
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav
+      class="flex justify-between items-center px-5 py-5 bg-white shadow-md sticky top-0 z-50"
+    >
+      <a
+        href="index.html"
+        class="text-2xl font-bold text-gray-800 underline underline-offset-8"
+      >
+        GLAMM!
+      </a>
+
+      <ul class="md:flex hidden space-x-8">
+        <li class="relative">
+          <a
+            href="index.html"
+            class="nav-link text-gray-800 font-medium hover:text-blue-400 transition-colors duration-300"
+            >Home</a
+          >
+        </li>
+        <li class="relative">
+          <a
+            href="#"
+            class="nav-link text-gray-800 font-medium hover:text-blue-400 transition-colors duration-300"
+            >Men</a
+          >
+        </li>
+        <li class="relative">
+          <a
+            href="#"
+            class="nav-link text-gray-800 font-medium hover:text-blue-400 transition-colors duration-300"
+            >Women</a
+          >
+        </li>
+
+        <li class="relative">
+          <a
+            href="products.html"
+            class="nav-link text-gray-800 font-medium hover:text-blue-400 transition-colors duration-300"
+            >Shop</a
+          >
+        </li>
+        <li class="relative">
+          <a
+            href="#"
+            class="nav-link text-gray-800 font-medium hover:text-blue-400 transition-colors duration-300"
+            >Sale</a
+          >
+        </li>
+      </ul>
+
+      <div class="flex items-center space-x-5">
+        <a
+          href="#"
+          class="text-gray-800 hover:text-blue-400 transition-all duration-300 hover:-translate-y-1"
+        >
+          <i id="searchToggle" class="fas fa-search text-xl"></i>
+          <div
+            id="searchDropdown"
+            class="hidden absolute right-0 mt-2 w-72 bg-white shadow-lg rounded-lg p-4"
+          >
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Search products..."
+                class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-blue-400/20 focus:border-blue-400 text-sm"
+              />
+              <div
+                class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 flex items-center justify-center text-gray-400"
+              >
+                <i class="ri-search-line"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          href="checkout.html"
+          class="text-gray-800 hover:text-blue-400 transition-all duration-300 hover:-translate-y-1"
+        >
+          <i class="fas fa-shopping-cart text-xl"></i>
+        </a>
+        <!-- <a
+          href="#"
+          class="text-gray-800 hover:text-blue-400 transition-all duration-300 hover:-translate-y-1"
+        >
+          
+
+        </a> -->
+        <div
+          class="dropdown dropdown-bottom dropdown-end text-gray-800 hover:text-blue-400 transition-all duration-300 hover:-translate-y-1"
+        >
+          <div tabindex="0" role="button">
+            <i class="fas fa-user text-xl"></i>
+          </div>
+          <ul
+            tabindex="-1"
+            class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+          >
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h1
+        class="font-bold text-3xl sm:text-[32px] text-center tracking-wide text-slate-900 mt-10 mb-6"
+      >
+        ALL PRODUCTS
+      </h1>
+
+      <div
+        class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-200 pb-4 mb-8"
+      >
+        <p class="text-sm text-slate-500">Browse our full collection</p>
+
+        <div class="flex items-center gap-3">
+          <label for="categoriesList" class="text-sm font-medium">
+            Categories
+          </label>
+
+          <select
+            name="categories"
+            id="categoriesList"
+            class="w-full sm:w-56 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm"
+          >
+            <option value="all">All categories</option>
+          </select>
+        </div>
+      </div>
+    </section>
     <div
       id="allProducts"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-20"
     ></div>
-    <script src="script.js"></script>
+
+    <div
+      id="selectedCategory"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-20"
+    ></div>
+
+    <script>
+      const prodPage = document.getElementById("allProducts");
+      const categoriesList = document.getElementById("categoriesList");
+      const selectedCategory = document.getElementById("selectedCategory");
+      const category = document.getElementById("category");
+      const cartButton = document.getElementById("cartButton");
+      const productId = document.querySelector(["data-index"]);
+
+      categoriesList.addEventListener("change", getCategory);
+
+      async function getCategory() {
+        try {
+          let inputCategory = categoriesList.value;
+          console.log(inputCategory);
+
+          await fetch(
+            `https://dummyjson.com/products/category/${inputCategory}`,
+          )
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Bad Response");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              let products = data.products;
+              prodPage.hidden = true;
+
+              selectedCategory.innerHTML = "";
+              products.forEach((product) => {
+                let newDiv = document.createElement("div");
+
+                newDiv.innerHTML = `<div
+                                      class="bg-white border border-slate-200 max-h-[630px]  flex flex-col justify-between shadow-sm w-full max-w-sm rounded-lg mx-auto mt-6 overflow-hidden">
+                                      <div class="px-4 py-3 flex justify-between gap-4 flex-wrap sm:px-6">
+                                          <h3 class="text-slate-900 text-base font-semibold">${product.title}</h3>
+                                      </div>
+
+                                      <div class="aspect-[3/2] w-full bg-gray-50">
+                                          <img src="${product.thumbnail}" class="w-full h-fit object-cover" alt="Card image" />
+                                      </div>
+
+                                      <div class="p-4 sm:p-6">
+                                          <p class="text-sm text-slate-600 leading-relaxed">${product.description}</p>
+
+                                          <div class="mt-6 flex justify-between items-center gap-4">
+                                            <span class="text-lg text-slate-900 font-bold">$${product.price}</span>
+                                            <button id="cartButton"
+                                            data-index
+                                            class="inline-block py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                                            Add to Cart
+                                        </button>
+                                          </div>
+                                      </div>
+                                    </div>`;
+                selectedCategory.append(newDiv);
+              });
+            });
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+
+      async function getCategories() {
+        try {
+          await fetch("https://dummyjson.com/products/category-list")
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+
+              data.forEach((category) => {
+                let list = document.createElement("option");
+
+                list.innerHTML = `
+                            <option id="${category}" value="${category}">${category}</option>
+                            `;
+                categoriesList.append(list);
+              });
+            });
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+
+      async function getAllProducts() {
+        try {
+          const response = await fetch("https://dummyjson.com/products");
+          const result = await response.json();
+
+          if (!response.ok) {
+            throw new Error(result.message || "Failed to fetch all products");
+          }
+          console.log(result.message);
+          let products = result.products;
+
+          products.forEach((product) => {
+            let newDiv = document.createElement("div");
+            newDiv.style.border = "2px";
+            newDiv.style.borderColor = "#000000";
+
+            newDiv.innerHTML = `<div
+                                  class="bg-white border border-slate-200 max-h-[630px]  flex flex-col justify-between shadow-sm w-full max-w-sm rounded-lg mx-auto mt-6 overflow-hidden">
+                                  <div class="px-4 py-3 flex justify-between gap-4 flex-wrap sm:px-6">
+                                      <h3 class="text-slate-900 text-base font-semibold">${product.title}</h3>
+                                  </div>
+
+                                  <div class="aspect-[3/2] w-full bg-gray-50">
+                                      <img src="${product.thumbnail}" class="w-full h-fit object-cover" alt="Card image" />
+                                  </div>
+
+                                  <div class="p-4 sm:p-6">
+                                      <p class="text-sm text-slate-600 leading-relaxed">${product.description}</p>
+
+                                      <div class="mt-6 flex justify-between items-center gap-4">
+                                        <span class="text-lg text-slate-900 font-bold">$${product.price}</span>
+                                        <button id="cartButton"
+                                        data-index
+                                            class="inline-block py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                                            Add to Cart
+                                        </button>
+                                      </div>
+                                  </div>
+                                </div>`;
+            prodPage.append(newDiv);
+          });
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+
+      // cartButton.addEventListener("click", (e) => {
+      //   e.preventDefault();
+      //   addToCart();
+      // });
+
+      // async function addToCart() {
+      //   const productQuantity = 1;
+      //   const productId = data.index;
+      //   try {
+      //     await fetch("https://dummyjson.com/carts/1", {
+      //       method: "PUT",
+
+      //       headers: { "content-type": "application/json" },
+      //       body: JSON.stringify({
+      //         merge: true,
+      //         products: [
+      //           {
+      //             id: productId,
+      //             quantity: productQuantity,
+      //           },
+      //         ],
+      //       }),
+      //     })
+      //       .then((response) => response.json())
+      //       .then((data) => {
+      //         console.log(data);
+      //       });
+      //   } catch (error) {
+      //     console.error(error.message);
+      //   }
+      // }
+
+      // addToCart();
+      getAllProducts();
+      getCategories();
+    </script>
   </body>
 </html>

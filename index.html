@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modern E-commerce Site</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="output.css" />
     <style type="text/css">
       .offer-banner::before {
         content: "";
@@ -61,16 +61,20 @@
     <div
       class="offer-banner bg-blue-400 from-blue-400 to-secondary text-white text-center py-3 font-medium relative overflow-hidden"
     >
-      Special Offer: Free Shipping on all orders above N10,000.00
+      Special Offer: Free Shipping on all orders above N10,000
     </div>
 
     <!-- Navigation Bar -->
     <nav
       class="flex justify-between items-center px-5 py-5 bg-white shadow-md sticky top-0 z-50"
     >
-      <div class="text-2xl font-bold text-gray-800">ELLAS-FASHIONHUB</div>
+      <a href="#"
+        class="text-2xl font-bold text-gray-800 underline underline-offset-8"
+      >
+        GLAMM!
+      </a>
 
-      <ul class="flex md:flex hidden space-x-8">
+      <ul class="md:flex hidden space-x-8">
         <li class="relative">
           <a
             href="#"
@@ -92,23 +96,17 @@
             >Women</a
           >
         </li>
+        
         <li class="relative">
           <a
-            href="#"
-            class="nav-link text-gray-800 font-medium hover:text-blue-400 transition-colors duration-300"
-            >Page</a
-          >
-        </li>
-        <li class="relative">
-          <a
-            href="#"
+            href="products.html"
             class="nav-link text-gray-800 font-medium hover:text-blue-400 transition-colors duration-300"
             >Shop</a
           >
         </li>
         <li class="relative">
           <a
-            href="#"
+            href="products.html"
             class="nav-link text-gray-800 font-medium hover:text-blue-400 transition-colors duration-300"
             >Sale</a
           >
@@ -145,40 +143,147 @@
         >
           <i class="fas fa-shopping-cart text-xl"></i>
         </a>
-        <a
-          href="#"
-          class="text-gray-800 hover:text-blue-400 transition-all duration-300 hover:-translate-y-1"
+        <div
+          class="dropdown dropdown-bottom dropdown-end text-gray-800 hover:text-blue-400 transition-all duration-300 hover:-translate-y-1"
         >
-          <i class="fas fa-user text-xl"></i>
-        </a>
+          <div tabindex="0" role="button">
+            <i class="fas fa-user text-xl"></i>
+          </div>
+          <ul
+            tabindex="-1"
+            class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+          >
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
 
     <!-- Hero Banner -->
-    <div class="relative h-96 overflow-hidden min-h-screen">
-      <img
-        src="images/hero.png"
-        alt="Fashion Sale"
-        class="w-full h-full object-cover object-center"
-        loading="lazy"
-      />
-      <div
-        class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center"
-      >
-        <div class="text-center text-white px-4 animate-fadeInUp">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">
-            DECEMBER SALE COMING <br />
-            SOON
-          </h1>
-          <p class="text-xl mb-6">Up to 50% off on selected items</p>
-          <button
-            class="bg-blue-400 hover:bg-red-500 text-white px-8 py-3 rounded-full font-medium transition-colors duration-300"
-          >
-            SHOP NOW
-          </button>
+    <!-- hero section -->
+    <section class="px-4 md:px-8 h-187.5">
+      <div class="max-w-7xl mx-auto my-32">
+        <div
+          class="grid justify-center items-center gap-x-12 gap-y-16 lg:grid-cols-2"
+        >
+          <div>
+            <div class="max-w-3xl mx-auto text-center lg:mx-0 lg:text-left">
+              <p
+                class="mb-2 font-medium text-blue-700 text-sm uppercase dark:text-blue-500"
+              >
+                <span class="rotate-90 inline-block mr-2">|</span> FASHION &
+                BEAUTY, CURATED
+              </p>
+              <h1
+                class="text-4xl text-slate-900 font-bold leading-tight! mb-6 md:text-5xl dark:text-slate-50"
+              >
+                Dress Your Story. Own Your Glow.
+              </h1>
+              <p
+                class="text-slate-600 text-lg leading-relaxed dark:text-slate-400"
+              >
+                From everyday essentials to statement pieces, discover fashion
+                and beauty picks for men and women, all in one place. Fresh
+                styles land every week, with free shipping on orders above
+                N10,000.
+              </p>
+
+              <div
+                class="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start"
+              >
+                <a
+                  href="login.html"
+                  class="py-2.5 px-4 text-sm rounded-md font-semibold text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                >
+                  Shop New Arrivals
+                </a>
+                <a
+                  href="products.html"
+                  class="py-2.5 px-4 text-slate-900 text-sm font-semibold rounded-md bg-white border border-slate-300 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:text-slate-50 dark:hover:bg-neutral-700"
+                >
+                  Browse Collections
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-12">
+              <div
+                class="grid gap-x-4 gap-y-6 text-center sm:grid-cols-3 lg:text-left"
+              >
+                <div class="flex flex-col">
+                  <h5
+                    class="text-blue-700 font-semibold text-2xl mb-2 dark:text-blue-500"
+                  >
+                    10+
+                  </h5>
+                  <p
+                    class="text-base text-slate-600 font-medium dark:text-slate-400"
+                  >
+                    Years Experience
+                  </p>
+                </div>
+                <div class="flex flex-col">
+                  <h5
+                    class="text-blue-700 font-semibold text-2xl mb-2 dark:text-blue-500"
+                  >
+                    1000+
+                  </h5>
+                  <p
+                    class="text-base text-slate-600 font-medium dark:text-slate-400"
+                  >
+                    Luxury Items Sold
+                  </p>
+                </div>
+                <div class="flex flex-col">
+                  <h5
+                    class="text-blue-700 font-semibold text-2xl mb-2 dark:text-blue-500"
+                  >
+                    25
+                  </h5>
+                  <p
+                    class="text-base text-slate-600 font-medium dark:text-slate-400"
+                  >
+                    Brand Partners
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns-2 space-y-4">
+            <div class="break-inside-avoid">
+              <img
+                src="https://readymadeui.com/images/face-primer-category.webp"
+                alt="face-primer-category"
+                class="w-full h-full object-cover object-top rounded-lg max-h-90"
+              />
+            </div>
+            <div class="break-inside-avoid">
+              <img
+                src="images/hero.png"
+                alt="product6"
+                class="w-full h-full object-cover object-top rounded-lg max-h-90"
+              />
+            </div>
+            <div class="break-inside-avoid">
+              <img
+                src="images/c.png"
+                alt="product2"
+                class="w-full h-full object-cover object-top rounded-lg max-h-90"
+              />
+            </div>
+            <div class="break-inside-avoid">
+              <img
+                src="https://readymadeui.com/images/skin-glow-category.webp"
+                alt="skin-glow-category"
+                class="w-full h-full object-cover object-top rounded-lg max-h-90"
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Coupon Section -->
     <div
@@ -187,7 +292,7 @@
     >
       <h2 class="text-3xl font-bold mb-4">10% OFF Discount</h2>
       <div
-        class="coupon-box bg-gradient-to-br from-gray-50 to-gray-200 p-6 rounded-lg inline-block my-5 relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 shadow-md"
+        class="coupon-box bg-linear-to-br from-gray-50 to-gray-200 p-6 rounded-lg inline-block my-5 relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 shadow-md"
       >
         <p class="text-lg font-medium">
           Use code: <span class="font-bold text-blue-400">SALE10</span>
@@ -218,7 +323,9 @@
         style="animation-delay: 0.5s"
       >
         <h2 class="text-3xl font-bold">FEATURED PRODUCTS</h2>
-        <a href="products.html" class="text-blue-400 font-medium hover:underline"
+        <a
+          href="products.html"
+          class="text-blue-400 font-medium hover:underline"
           >VIEW ALL</a
         >
       </div>
@@ -229,6 +336,151 @@
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
       ></div>
     </div>
+
+    <section class="px-4 md:px-8 mt-6">
+  <div class="max-w-3xl mx-auto text-center md:mb-16 mb-12">
+    <h2 class="text-3xl font-bold text-slate-900 mb-6 md:text-4xl">What our happy customers say</h2>
+    <p class="text-base leading-relaxed text-slate-600">See what our happy customers have to say.
+      They’ve shared how our products helped them look professional, stylish and grow with ease.</p>
+  </div>
+
+  <div class="grid gap-x-8 gap-y-12 text-center max-w-7xl mx-auto md:grid-cols-2 lg:grid-cols-3">
+    <figure>
+      <figcaption class="flex flex-col items-center">
+        <img src="https://readymadeui.com/team-2.webp"
+          class="w-24 h-24 rounded-full border border-slate-300" alt="John Doe" />
+        <div class="mt-6">
+          <p class="text-base font-semibold text-slate-900">John Doe</p>
+        </div>
+      </figcaption>
+
+      <div class="flex justify-center gap-2 mt-3" role="img">
+        <span class="sr-only">4 out of 5 stars</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#CED5D8]" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+      </div>
+
+      <blockquote class="mt-6">
+        <p class="text-base leading-relaxed text-slate-600">GLAMM made it so easy to style my
+          wardrobe. The outfits are clean, fast to use, and saved me hours of waiting time.</p>
+      </blockquote>
+    </figure>
+
+      <!-- testimonials section -->
+    <figure>
+      <figcaption class="flex flex-col items-center">
+        <img src="https://readymadeui.com/team-3.webp"
+          class="w-24 h-24 rounded-full border border-slate-300" alt="Mark Adair" />
+        <div class="mt-6">
+          <p class="text-base font-semibold text-slate-900">Mark Adair</p>
+        </div>
+      </figcaption>
+
+      <div class="flex justify-center gap-2 mt-3" role="img">
+        <span class="sr-only">5 out of 5 stars</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+      </div>
+
+      <blockquote class="mt-6">
+        <p class="text-base leading-relaxed text-slate-600">I love how professional everything looks
+          with GLAMM! </p>
+      </blockquote>
+    </figure>
+
+    <figure>
+      <figcaption class="flex flex-col items-center">
+        <img src="https://readymadeui.com/team-4.webp"
+          class="w-24 h-24 rounded-full border border-slate-300" alt="Simon Konecki" />
+        <div class="mt-6">
+          <p class="text-base font-semibold text-slate-900">Simon Konecki</p>
+        </div>
+      </figcaption>
+
+      <div class="flex justify-center gap-2 mt-3" role="img">
+        <span class="sr-only">4 out of 5 stars</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#ffc107]" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-[#CED5D8]" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path
+            d="m23.363 8.584-7.378-1.127L12.678.413c-.247-.526-1.11-.526-1.357 0L8.015 7.457.637 8.584a.75.75 0 0 0-.423 1.265l5.36 5.494-1.267 7.767a.75.75 0 0 0 1.103.777L12 20.245l6.59 3.643a.75.75 0 0 0 1.103-.777l-1.267-7.767 5.36-5.494a.75.75 0 0 0-.423-1.266z"
+            data-original="#ffc107" />
+        </svg>
+      </div>
+
+      <blockquote class="mt-6">
+        <p class="text-base leading-relaxed text-slate-600">GLAMM gave my wardrobe a polished
+          look without the hassle. The outfits are beautifully designed and ready to go.</p>
+      </blockquote>
+    </figure>
+  </div>
+</section>
 
     <!-- Newsletter Section -->
     <div class="newsletter bg-gray-100 py-16 px-5">
@@ -260,7 +512,7 @@
     <footer class="bg-gray-800 text-white py-12 px-5">
       <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <h3 class="text-xl font-bold mb-4">ELLAS-FASHIONHUB</h3>
+          <h3 class="text-xl font-bold mb-4">GLAMM!</h3>
           <p class="text-gray-400">
             Your one-stop shop for the latest fashion trends and styles.
           </p>
@@ -362,11 +614,9 @@
         </div>
       </div>
       <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-        <p>&copy; 2026 ELLA-FASHIONHUB. All rights reserved.</p>
+        <p>&copy; 2026 GLAMM!. All rights reserved.</p>
       </div>
     </footer>
-    <script src="script.js">
-     
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
